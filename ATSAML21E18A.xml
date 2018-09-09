@@ -17,15 +17,18 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 <avr-tools-device-file xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" schema-version="0.3" xsi:noNamespaceSchemaLocation="../../schema/avr_tools_device_file.xsd">
-  <file timestamp="2017-11-11T13:36:21Z"/>
+  <file timestamp="2017-11-11T13:36:02Z"/>
   <variants>
-    <variant ordercode="SAML21E18A-AU" package="TQFP32" pinout="SAML21E" speedmax="48000000" tempmin="-40" tempmax="85" vccmin="1.62" vccmax="3.63"/>
+    <variant ordercode="SAML21E17B-MU" package="QFN32" pinout="SAML21EM" speedmax="48000000" tempmin="-40" tempmax="85" vccmin="1.62" vccmax="3.63"/>
+    <variant ordercode="SAML21E17B-MN" package="QFN32" pinout="SAML21EM" speedmax="48000000" tempmin="-40" tempmax="105" vccmin="1.62" vccmax="3.63"/>
+    <variant ordercode="SAML21E17B-AU" package="TQFP32" pinout="SAML21EA" speedmax="48000000" tempmin="-40" tempmax="85" vccmin="1.62" vccmax="3.63"/>
+    <variant ordercode="SAML21E17B-AN" package="TQFP32" pinout="SAML21EA" speedmax="48000000" tempmin="-40" tempmax="105" vccmin="1.62" vccmax="3.63"/>
   </variants>
   <devices>
-    <device name="ATSAML21E18A" architecture="CORTEX-M0PLUS" family="SAML" series="SAML21">
+    <device name="ATSAML21E17B" architecture="CORTEX-M0PLUS" family="SAML" series="SAML21">
       <address-spaces>
         <address-space id="base" name="base" start="0" size="0x100000000" endianness="little">
-          <memory-segment name="FLASH" start="0x00000000" size="0x40000" type="flash" pagesize="64" rw="RW" exec="true"/>
+          <memory-segment name="FLASH" start="0x00000000" size="0x20000" type="flash" pagesize="64" rw="RW" exec="true"/>
           <memory-segment name="CAL" start="0x00800000" size="0x8" type="fuses" rw="R"/>
           <memory-segment name="LOCKBIT" start="0x00802000" size="0x4" type="fuses" rw="R"/>
           
@@ -35,8 +38,8 @@ limitations under the License.
           
           
           <memory-segment name="AUX0" start="0x00804000" size="0x100" type="user_page" pagesize="64" rw="RW"/><memory-segment name="AUX1" start="0x00806000" size="0x100" type="fuses" pagesize="64" rw="R"/>
-          <memory-segment name="RWW" start="0x00400000" size="0x2000" type="flash" pagesize="64" rw="RW" exec="true"/>
-          <memory-segment name="HSRAM" start="0x20000000" size="0x8000" type="ram" rw="RW" exec="true"/>
+          <memory-segment name="RWW" start="0x00400000" size="0x1000" type="flash" pagesize="64" rw="RW" exec="true"/>
+          <memory-segment name="HSRAM" start="0x20000000" size="0x4000" type="ram" rw="RW" exec="true"/>
           <memory-segment name="LPRAM" start="0x30000000" size="0x2000" type="ram" rw="RW" exec="true"/>
           <memory-segment name="HPB0" start="0x40000000" size="0x4000" type="io" rw="RW"/>
           <memory-segment name="HPB1" start="0x41000000" size="0x10000" type="io" rw="RW"/>
@@ -62,7 +65,7 @@ limitations under the License.
         <param name="__DEVICE_IS_SAM" value="1"/>
       </parameters>
       <peripherals>
-        <module name="AC" id="U2245" version="1.0.0">
+        <module name="AC" id="U2245" version="1.0.1">
           <instance name="AC">
             <register-group name="AC" name-in-module="AC" address-space="base" offset="0x43001000"/>
             <signals>
@@ -82,7 +85,7 @@ limitations under the License.
             </parameters>
           </instance>
         </module>
-        <module name="ADC" id="U2247" version="1.0.0">
+        <module name="ADC" id="U2247" version="1.1.1">
           <instance name="ADC">
             <register-group name="ADC" name-in-module="ADC" address-space="base" offset="0x43000C00"/>
             <signals>
@@ -108,7 +111,7 @@ limitations under the License.
             </parameters>
           </instance>
         </module>
-        <module name="AES" id="U2238" version="1.0.0">
+        <module name="AES" id="U2238" version="2.0.0">
           <instance name="AES">
             <register-group name="AES" name-in-module="AES" address-space="base" offset="0x42003400"/>
             <parameters>
@@ -118,7 +121,7 @@ limitations under the License.
             </parameters>
           </instance>
         </module>
-        <module name="CCL" id="U2225" version="1.0.0">
+        <module name="CCL" id="U2225" version="1.0.1">
           <instance name="CCL">
             <register-group name="CCL" name-in-module="CCL" address-space="base" offset="0x43001C00"/>
             <signals>
@@ -150,7 +153,7 @@ limitations under the License.
             </parameters>
           </instance>
         </module>
-        <module name="DAC" id="U2244" version="1.0.0">
+        <module name="DAC" id="U2244" version="1.1.2">
           <instance name="DAC">
             <register-group name="DAC" name-in-module="DAC" address-space="base" offset="0x42003000"/>
             <signals>
@@ -166,7 +169,7 @@ limitations under the License.
             </parameters>
           </instance>
         </module>
-        <module name="DMAC" id="U2223" version="2.0.0">
+        <module name="DMAC" id="U2223" version="2.2.2">
           <instance name="DMAC">
             <register-group name="DMAC" name-in-module="DMAC" address-space="base" offset="0x44000400"/>
             <parameters>
@@ -185,7 +188,7 @@ limitations under the License.
             </parameters>
           </instance>
         </module>
-        <module name="DSU" id="U2209" version="2.4.0">
+        <module name="DSU" id="U2209" version="2.5.0">
           <instance name="DSU">
             <register-group name="DSU" name-in-module="DSU" address-space="base" offset="0x41002000"/>
             <parameters>
@@ -193,7 +196,7 @@ limitations under the License.
             </parameters>
           </instance>
         </module>
-        <module name="EIC" id="U2254" version="1.0.0">
+        <module name="EIC" id="U2254" version="2.0.2">
           <instance name="EIC">
             <register-group name="EIC" name-in-module="EIC" address-space="base" offset="0x40002400"/>
             <signals>
@@ -224,6 +227,7 @@ limitations under the License.
               <signal group="NMI" function="A" pad="PA08"/>
             </signals>
             <parameters>
+              <param name="EXTINT_NUM" value="16"/>
               <param name="GCLK_ID" value="3"/>
               <param name="NUMBER_OF_CONFIG_REGS" value="2"/>
               <param name="NUMBER_OF_INTERRUPTS" value="16"/>
@@ -231,7 +235,7 @@ limitations under the License.
             </parameters>
           </instance>
         </module>
-        <module name="EVSYS" id="U2256" version="1.0.0">
+        <module name="EVSYS" id="U2256" version="1.0.1">
           <instance name="EVSYS">
             <register-group name="EVSYS" name-in-module="EVSYS" address-space="base" offset="0x43000000"/>
             <parameters>
@@ -247,7 +251,7 @@ limitations under the License.
             </parameters>
           </instance>
         </module>
-        <module name="GCLK" id="U2122" version="1.0.0">
+        <module name="GCLK" id="U2122" version="1.1.1">
           <instance name="GCLK">
             <register-group name="GCLK" name-in-module="GCLK" address-space="base" offset="0x40001800"/>
             <signals>
@@ -264,10 +268,12 @@ limitations under the License.
             </signals>
             <parameters>
               <param name="GENDIV_BITS" value="16"/>
+              <param name="GEN_BITS" value="4"/>
               <param name="GEN_NUM" value="9"/>
               <param name="GEN_NUM_MSB" value="8"/>
               <param name="GEN_SOURCE_NUM_MSB" value="8"/>
               <param name="NUM" value="36"/>
+              <param name="SOURCE_BITS" value="4"/>
               <param name="SOURCE_DFLL48M" value="7"/>
               <param name="SOURCE_DPLL96M" value="8"/>
               <param name="SOURCE_GCLKGEN1" value="2"/>
@@ -282,7 +288,7 @@ limitations under the License.
             </parameters>
           </instance>
         </module>
-        <module name="MCLK" id="U2234" version="1.0.0">
+        <module name="MCLK" id="U2234" version="1.0.1">
           <instance name="MCLK">
             <register-group name="MCLK" name-in-module="MCLK" address-space="base" offset="0x40000400"/>
             <parameters>
@@ -323,12 +329,9 @@ limitations under the License.
             </parameters>
           </instance>
         </module>
-        <module name="NVMCTRL" id="U2207" version="3.0.1">
+        <module name="NVMCTRL" id="U2207" version="3.0.2">
           <instance name="NVMCTRL">
             <register-group name="NVMCTRL" name-in-module="NVMCTRL" address-space="base" offset="0x41004000"/>
-            <signals>
-              <signal group="MARGIN" function="default" pad="VMARGIN"/>
-            </signals>
             <parameters>
               <param name="FACTORY_WORD_IMPLEMENTED_MASK" value="0XC0000007FFFFFFFF"/>
               <param name="GCLK_ID" value="35"/>
@@ -338,11 +341,11 @@ limitations under the License.
               <param name="USER_WORD_IMPLEMENTED_MASK" value="0XC01FFFFFFFFFFFFF"/>
               <param name="RWWEE_PAGES" value="128"/>
               <param name="RWW_EEPROM_ADDR" value="0x00400000"/>
-              <param name="RWW_EEPROM_SIZE" value="8192"/>
-              <param name="FLASH_SIZE" value="262144"/>
+              <param name="RWW_EEPROM_SIZE" value="4096"/>
+              <param name="FLASH_SIZE" value="131072"/>
               <param name="PAGE_SIZE" value="64"/>
-              <param name="PAGES" value="4096"/>
-              <param name="PAGES_PR_REGION" value="256"/>
+              <param name="PAGES" value="2048"/>
+              <param name="PAGES_PR_REGION" value="128"/>
                   <!--  From Datasheet section "Electrical Characteristics","Flash Characteristics" table "Maximum operating Frequency" -->
                   <param name="PSM_0_FRMFW_FWS_1_MAX_FREQ" value="12000000"/>
                   <param name="PSM_0_FRMLP_FWS_0_MAX_FREQ" value="18000000"/>
@@ -356,14 +359,14 @@ limitations under the License.
             </parameters>
           </instance>
         </module>
-        <module name="FUSES" id="U2207" version="3.0.1">
+        <module name="FUSES" id="U2207" version="3.0.2">
           <instance name="FUSES">
             <register-group name="OTP5_FUSES" name-in-module="OTP5_FUSES" address-space="fuses" offset="0x00806020"/>
             <register-group name="TEMP_LOG_FUSES" name-in-module="TEMP_LOG_FUSES" address-space="fuses" offset="0x00806030"/>
             <register-group name="USER_FUSES" name-in-module="USER_FUSES" address-space="fuses" offset="0x00804000"/>
           </instance>
         </module>
-        <module name="OPAMP" id="U2237" version="1.0.0">
+        <module name="OPAMP" id="U2237" version="1.1.0">
           <instance name="OPAMP">
             <register-group name="OPAMP" name-in-module="OPAMP" address-space="base" offset="0x43001800"/>
             <signals>
@@ -378,7 +381,7 @@ limitations under the License.
             </parameters>
           </instance>
         </module>
-        <module name="OSCCTRL" id="U2119" version="1.0.0">
+        <module name="OSCCTRL" id="U2119" version="1.1.0">
           <instance name="OSCCTRL">
             <register-group name="OSCCTRL" name-in-module="OSCCTRL" address-space="base" offset="0x40000C00"/>
             <signals>
@@ -391,7 +394,7 @@ limitations under the License.
               <param name="GCLK_ID_DFLL48" value="0"/>
               <param name="GCLK_ID_FDPLL" value="1"/>
               <param name="GCLK_ID_FDPLL32K" value="2"/>
-              <param name="DFLL48M_VERSION" value="0x310"/>
+              <param name="DFLL48M_VERSION" value="0x320"/>
               <param name="FDPLL_VERSION" value="0x200"/>
               <param name="OSC16M_VERSION" value="0x100"/>
               <param name="XOSC_VERSION" value="0x120"/>
@@ -399,7 +402,7 @@ limitations under the License.
             </parameters>
           </instance>
         </module>
-        <module name="OSC32KCTRL" id="U2246" version="1.0.0">
+        <module name="OSC32KCTRL" id="U2246" version="1.1.0">
           <instance name="OSC32KCTRL">
             <register-group name="OSC32KCTRL" name-in-module="OSC32KCTRL" address-space="base" offset="0x40001000"/>
             <signals>
@@ -412,7 +415,7 @@ limitations under the License.
             </parameters>
           </instance>
         </module>
-        <module name="PAC" id="U2120" version="1.0.0">
+        <module name="PAC" id="U2120" version="1.1.0">
           <instance name="PAC">
             <register-group name="PAC" name-in-module="PAC" address-space="base" offset="0x44000000"/>
             <parameters>
@@ -422,7 +425,7 @@ limitations under the License.
             </parameters>
           </instance>
         </module>
-        <module name="PM" id="U2240" version="1.0.0">
+        <module name="PM" id="U2240" version="1.0.2">
           <instance name="PM">
             <register-group name="PM" name-in-module="PM" address-space="base" offset="0x40000000"/>
             <signals>
@@ -434,7 +437,7 @@ limitations under the License.
             </parameters>
           </instance>
         </module>
-        <module name="PORT" id="U2210" version="2.0.0">
+        <module name="PORT" id="U2210" version="2.0.1">
           <instance name="PORT">
             <register-group name="PORT" name-in-module="PORT" address-space="base" offset="0x40002800"/>
             <register-group name="PORT_IOBUS" name-in-module="PORT" address-space="base" offset="0x60000000"/>
@@ -476,7 +479,7 @@ limitations under the License.
             </parameters>
           </instance>
         </module>
-        <module name="PTC" id="U2215" version="2.0.0">
+        <module name="PTC" id="U2215" version="2.1.0">
           <instance name="PTC">
             <register-group name="PTC" name-in-module="PTC" address-space="base" offset="0x43001400"/>
             <signals>
@@ -492,10 +495,7 @@ limitations under the License.
               <signal group="X" index="11" function="B_PTCX" pad="PA23"/>
               <signal group="Y" index="0" function="B_PTCY" pad="PA02"/>
               <signal group="Y" index="1" function="B_PTCY" pad="PA03"/>
-              <signal group="Y" index="2" function="B_PTCY" pad="PA04"/>
-              <signal group="Y" index="3" function="B_PTCY" pad="PA05"/>
               <signal group="Y" index="4" function="B_PTCY" pad="PA06"/>
-              <signal group="Y" index="5" function="B_PTCY" pad="PA07"/>
               <signal group="Y" index="6" function="B_PTCY" pad="PA08"/>
               <signal group="Y" index="7" function="B_PTCY" pad="PA09"/>
               <signal group="Y" index="8" function="B_PTCY" pad="PA10"/>
@@ -507,7 +507,7 @@ limitations under the License.
             </parameters>
           </instance>
         </module>
-        <module name="RSTC" id="U2239" version="1.0.0">
+        <module name="RSTC" id="U2239" version="1.1.0">
           <instance name="RSTC">
             <register-group name="RSTC" name-in-module="RSTC" address-space="base" offset="0x40000800"/>
             <signals>
@@ -519,20 +519,14 @@ limitations under the License.
               <signal group="EXTWAKE" index="5" function="A_EXTWAKE" pad="PA05"/>
               <signal group="EXTWAKE" index="6" function="A_EXTWAKE" pad="PA06"/>
               <signal group="EXTWAKE" index="7" function="A_EXTWAKE" pad="PA07"/>
-              <signal group="EXTWAKE" index="8" function="A_EXTWAKE" pad="PA08"/>
-              <signal group="EXTWAKE" index="9" function="A_EXTWAKE" pad="PA09"/>
-              <signal group="EXTWAKE" index="10" function="A_EXTWAKE" pad="PA10"/>
-              <signal group="EXTWAKE" index="11" function="A_EXTWAKE" pad="PA11"/>
-              <signal group="EXTWAKE" index="14" function="A_EXTWAKE" pad="PA14"/>
-              <signal group="EXTWAKE" index="15" function="A_EXTWAKE" pad="PA15"/>
             </signals>
             <parameters>
-              <param name="NUMBER_OF_EXTWAKE" value="16"/>
+              <param name="NUMBER_OF_EXTWAKE" value="8"/>
               <param name="INSTANCE_ID" value="2"/>
             </parameters>
           </instance>
         </module>
-        <module name="RTC" id="U2250" version="1.0.0">
+        <module name="RTC" id="U2250" version="1.1.0">
           <instance name="RTC">
             <register-group name="RTC" name-in-module="RTC" address-space="base" offset="0x40002000"/>
             <parameters>
@@ -545,7 +539,7 @@ limitations under the License.
             </parameters>
           </instance>
         </module>
-        <module name="SERCOM" id="U2201" version="2.1.0">
+        <module name="SERCOM" id="U2201" version="2.2.0">
           <instance name="SERCOM0">
             <register-group name="SERCOM0" name-in-module="SERCOM" address-space="base" offset="0x42000000"/>
             <signals>
@@ -615,7 +609,6 @@ limitations under the License.
             <signals>
               <signal group="PAD" index="0" function="D" pad="PA16"/>
               <signal group="PAD" index="0" function="C" pad="PA22"/>
-              <signal group="PAD" index="0" function="F_RF233" pad="PA27"/>
               <signal group="PAD" index="1" function="D" pad="PA17"/>
               <signal group="PAD" index="1" function="C" pad="PA23"/>
               <signal group="PAD" index="2" function="D" pad="PA18"/>
@@ -633,8 +626,40 @@ limitations under the License.
               <param name="INSTANCE_ID" value="67"/>
             </parameters>
           </instance>
+          <instance name="SERCOM4">
+            <register-group name="SERCOM4" name-in-module="SERCOM" address-space="base" offset="0x42001000"/>
+            <signals>
+              <signal group="PAD" index="2" function="D" pad="PA14"/>
+              <signal group="PAD" index="3" function="D" pad="PA15"/>
+            </signals>
+            <parameters>
+              <param name="DMAC_ID_RX" value="9"/>
+              <param name="DMAC_ID_TX" value="10"/>
+              <param name="GCLK_ID_CORE" value="22"/>
+              <param name="GCLK_ID_SLOW" value="17"/>
+              <param name="INT_MSB" value="6"/>
+              <param name="PMSB" value="3"/>
+              <param name="INSTANCE_ID" value="68"/>
+            </parameters>
+          </instance>
+          <instance name="SERCOM5">
+            <register-group name="SERCOM5" name-in-module="SERCOM" address-space="base" offset="0x43000400"/>
+            <signals>
+              <signal group="PAD" index="0" function="D" pad="PA22"/>
+              <signal group="PAD" index="1" function="D" pad="PA23"/>
+              <signal group="PAD" index="2" function="D" pad="PA24"/>
+              <signal group="PAD" index="3" function="D" pad="PA25"/>
+            </signals>
+            <parameters>
+              <param name="GCLK_ID_CORE" value="24"/>
+              <param name="GCLK_ID_SLOW" value="23"/>
+              <param name="INT_MSB" value="3"/>
+              <param name="PMSB" value="3"/>
+              <param name="INSTANCE_ID" value="97"/>
+            </parameters>
+          </instance>
         </module>
-        <module name="SUPC" id="U2117" version="1.0.0">
+        <module name="SUPC" id="U2117" version="1.1.0">
           <instance name="SUPC">
             <register-group name="SUPC" name-in-module="SUPC" address-space="base" offset="0x40001400"/>
             <signals>
@@ -647,7 +672,7 @@ limitations under the License.
             </parameters>
           </instance>
         </module>
-        <module name="TC" id="U2249" version="1.0.0">
+        <module name="TC" id="U2249" version="2.0.0">
           <instance name="TC0">
             <register-group name="TC0" name-in-module="TC" address-space="base" offset="0x42002000"/>
             <signals>
@@ -699,16 +724,14 @@ limitations under the License.
             </parameters>
           </instance>
         </module>
-        <module name="TCC" id="U2213" version="2.0.0">
+        <module name="TCC" id="U2213" version="3.0.0">
           <instance name="TCC0">
             <register-group name="TCC0" name-in-module="TCC" address-space="base" offset="0x42001400"/>
             <signals>
               <signal group="WO" index="0" function="E" pad="PA04"/>
               <signal group="WO" index="0" function="E" pad="PA08"/>
-              <signal group="WO" index="0" function="F_RF233" pad="PA16"/>
               <signal group="WO" index="1" function="E" pad="PA05"/>
               <signal group="WO" index="1" function="E" pad="PA09"/>
-              <signal group="WO" index="1" function="F_RF233" pad="PA17"/>
               <signal group="WO" index="2" function="F" pad="PA10"/>
               <signal group="WO" index="2" function="F" pad="PA18"/>
               <signal group="WO" index="3" function="F" pad="PA11"/>
@@ -799,7 +822,7 @@ limitations under the License.
             </parameters>
           </instance>
         </module>
-        <module name="USB" id="U2222" version="1.1.0">
+        <module name="USB" id="U2222" version="1.1.1">
           <instance name="USB">
             <register-group name="USB" name-in-module="USB" address-space="base" offset="0x41000000"/>
             <signals>
@@ -816,7 +839,7 @@ limitations under the License.
             </parameters>
           </instance>
         </module>
-        <module name="WDT" id="U2251" version="1.0.0">
+        <module name="WDT" id="U2251" version="1.0.1">
           <instance name="WDT">
             <register-group name="WDT" name-in-module="WDT" address-space="base" offset="0x40001C00"/>
             <parameters>
@@ -865,6 +888,8 @@ limitations under the License.
         <interrupt name="SERCOM1" index="9" module-instance="SERCOM1"/>
         <interrupt name="SERCOM2" index="10" module-instance="SERCOM2"/>
         <interrupt name="SERCOM3" index="11" module-instance="SERCOM3"/>
+        <interrupt name="SERCOM4" index="12" module-instance="SERCOM4"/>
+        <interrupt name="SERCOM5" index="13" module-instance="SERCOM5"/>
         <interrupt name="TCC0" index="14" module-instance="TCC0"/>
         <interrupt name="TCC1" index="15" module-instance="TCC1"/>
         <interrupt name="TCC2" index="16" module-instance="TCC2"/>
@@ -883,13 +908,13 @@ limitations under the License.
       </interfaces>
       <property-groups>
         <property-group name="SIGNATURES">
-          <property name="DSU_DID" value="0x1081000A"/>
+          <property name="DSU_DID" value="0x1081021A"/>
         </property-group>
       </property-groups>
     </device>
   </devices>
   <modules>
-    <module name="AC" id="U2245" version="1.0.0" caption="Analog Comparators">
+    <module name="AC" id="U2245" version="1.0.1" caption="Analog Comparators">
       <register-group name="AC" caption="Analog Comparators">
         <register name="CTRLA" offset="0x0" rw="RW" access="WSYNC" size="1" initval="0x00" caption="Control A">
           <bitfield name="SWRST" caption="Software Reset" mask="0x1"/>
@@ -1032,7 +1057,7 @@ limitations under the License.
         <value name="HIGH" caption="High speed" value="3"/>
       </value-group>
     </module>
-    <module name="ADC" id="U2247" version="1.0.0" caption="Analog Digital Converter">
+    <module name="ADC" id="U2247" version="1.1.1" caption="Analog Digital Converter">
       <register-group name="ADC" caption="Analog Digital Converter">
         <register name="CTRLA" offset="0x0" rw="RW" access="WSYNC" size="1" initval="0x00" caption="Control A">
           <bitfield name="SWRST" caption="Software Reset" mask="0x1"/>
@@ -1116,14 +1141,14 @@ limitations under the License.
         <register name="SYNCBUSY" offset="0x20" rw="R" size="2" initval="0x0000" caption="Synchronization Busy">
           <bitfield name="SWRST" caption="SWRST Synchronization Busy" mask="0x1"/>
           <bitfield name="ENABLE" caption="ENABLE Synchronization Busy" mask="0x2"/>
-          <bitfield name="AVGCTRL" caption="AVGCTRL Synchronization Busy" mask="0x4"/>
-          <bitfield name="SAMPCTRL" caption="SAMPCTRL Synchronization Busy" mask="0x8"/>
-          <bitfield name="CTRLC" caption="CTRLC Synchronization Busy" mask="0x10"/>
-          <bitfield name="INPUTCTRL" caption="INPUTCTRL Synchronization Busy" mask="0x20"/>
-          <bitfield name="OFFSETCORR" caption="OFFSETCTRL Synchronization Busy" mask="0x40"/>
-          <bitfield name="GAINCORR" caption="GAINCORR Synchronization Busy" mask="0x80"/>
-          <bitfield name="WINLT" caption="WINLT Synchronization Busy" mask="0x100"/>
-          <bitfield name="WINUT" caption="WINUT Synchronization Busy" mask="0x200"/>
+          <bitfield name="INPUTCTRL" caption="INPUTCTRL Synchronization Busy" mask="0x4"/>
+          <bitfield name="CTRLC" caption="CTRLC Synchronization Busy" mask="0x8"/>
+          <bitfield name="AVGCTRL" caption="AVGCTRL Synchronization Busy" mask="0x10"/>
+          <bitfield name="SAMPCTRL" caption="SAMPCTRL Synchronization Busy" mask="0x20"/>
+          <bitfield name="WINLT" caption="WINLT Synchronization Busy" mask="0x40"/>
+          <bitfield name="WINUT" caption="WINUT Synchronization Busy" mask="0x80"/>
+          <bitfield name="GAINCORR" caption="GAINCORR Synchronization Busy" mask="0x100"/>
+          <bitfield name="OFFSETCORR" caption="OFFSETCTRL Synchronization Busy" mask="0x200"/>
           <bitfield name="SWTRIG" caption="SWTRG Synchronization Busy" mask="0x400"/>
         </register>
         <register name="RESULT" offset="0x24" rw="R" size="2" initval="0x0000" caption="Result">
@@ -1217,7 +1242,7 @@ limitations under the License.
         <value name="1024" caption="1024 samples" value="0xA"/>
       </value-group>
     </module>
-    <module name="AES" id="U2238" version="1.0.0" caption="Advanced Encryption Standard">
+    <module name="AES" id="U2238" version="2.0.0" caption="Advanced Encryption Standard">
       <register-group name="AES" caption="Advanced Encryption Standard">
         <register name="CTRLA" offset="0x0" rw="RW" size="4" initval="0x00000000" caption="Control A">
           <bitfield name="SWRST" caption="Software Reset" mask="0x1"/>
@@ -1272,7 +1297,7 @@ limitations under the License.
         </register>
       </register-group>
     </module>
-    <module name="CCL" id="U2225" version="1.0.0" caption="Configurable Custom Logic">
+    <module name="CCL" id="U2225" version="1.0.1" caption="Configurable Custom Logic">
       <register-group name="CCL" caption="Configurable Custom Logic">
         <register name="CTRL" offset="0x0" rw="RW" size="1" initval="0x00" caption="Control">
           <bitfield name="SWRST" caption="Software Reset" mask="0x1"/>
@@ -1320,7 +1345,7 @@ limitations under the License.
         <value name="SERCOM" caption="SERCOM inout source" value="9"/>
       </value-group>
     </module>
-    <module name="DAC" id="U2244" version="1.0.0" caption="Digital-to-Analog Converter">
+    <module name="DAC" id="U2244" version="1.1.2" caption="Digital-to-Analog Converter">
       <register-group name="DAC" caption="Digital-to-Analog Converter">
         <register name="CTRLA" offset="0x0" rw="RW" access="WSYNC" size="1" initval="0x00" caption="Control A">
           <bitfield name="SWRST" caption="Software Reset" mask="0x1"/>
@@ -1370,7 +1395,7 @@ limitations under the License.
           <bitfield name="DATABUF0" caption="Data Buffer DAC 0" mask="0x10"/>
           <bitfield name="DATABUF1" caption="Data Buffer DAC 1" mask="0x20"/>
         </register>
-        <register name="DACCTRL" offset="0xC" rw="RW" size="2" count="2" initval="0x0000" caption="DACx Control">
+        <register name="DACCTRL" offset="0xC" rw="RW" size="2" count="2" initval="0x0000" caption="DAC n Control">
           <bitfield name="LEFTADJ" caption="Left Adjusted Data" mask="0x1"/>
           <bitfield name="ENABLE" caption="Enable DAC0" mask="0x2"/>
           <bitfield name="CCTRL" caption="Current Control" mask="0xC" values="DAC_DACCTRL__CCTRL"/>
@@ -1378,10 +1403,10 @@ limitations under the License.
           <bitfield name="DITHER" caption="Dithering Mode" mask="0x80"/>
           <bitfield name="REFRESH" caption="Refresh period" mask="0xF00"/>
         </register>
-        <register name="DATA" offset="0x10" rw="W" access="WSYNC" size="2" count="2" initval="0x0000" caption="Data DAC0">
+        <register name="DATA" offset="0x10" rw="W" access="WSYNC" size="2" count="2" initval="0x0000" caption="DAC n Data">
           <bitfield name="DATA" caption="DAC0 Data" mask="0xFFFF"/>
         </register>
-        <register name="DATABUF" offset="0x14" rw="W" access="WSYNC" size="2" count="2" initval="0x0000" caption="Data Buffer DAC0">
+        <register name="DATABUF" offset="0x14" rw="W" access="WSYNC" size="2" count="2" initval="0x0000" caption="DAC n Data Buffer">
           <bitfield name="DATABUF" caption="DAC0 Data Buffer" mask="0xFFFF"/>
         </register>
         <register name="DBGCTRL" offset="0x18" rw="RW" size="1" initval="0x00" caption="Debug Control">
@@ -1397,10 +1422,10 @@ limitations under the License.
       <value-group name="DAC_DACCTRL__CCTRL">
         <value name="CC100K" caption="GCLK_DAC &lt;= 1.2MHz (100kSPS)" value="0x0"/>
         <value name="CC1M" caption="1.2MHz &lt; GCLK_DAC &lt;= 6MHz (500kSPS)" value="0x1"/>
-        <value name="CC12M" caption="6MHz &lt; GCLK_DAC &lt;= 12MHz (1MSPS)" value="0x2"/>
+        <value name="CC12M" caption="6MHz &lt; GCLK_DAC &lt;=12MHz (1MSPS)" value="0x2"/>
       </value-group>
     </module>
-    <module name="DMAC" id="U2223" version="2.0.0" caption="Direct Memory Access Controller">
+    <module name="DMAC" id="U2223" version="2.2.2" caption="Direct Memory Access Controller">
       <register-group name="DMAC" caption="Direct Memory Access Controller">
         <register name="CTRL" offset="0x0" rw="RW" size="2" initval="0x0000" caption="Control">
           <bitfield name="SWRST" caption="Software Reset" mask="0x1"/>
@@ -1686,7 +1711,7 @@ limitations under the License.
         <value name="DISABLE" caption="Only software/event triggers" value="0x00"/>
       </value-group>
     </module>
-    <module name="DSU" id="U2209" version="2.4.0" caption="Device Service Unit">
+    <module name="DSU" id="U2209" version="2.5.0" caption="Device Service Unit">
       <register-group name="DSU" caption="Device Service Unit">
         <register name="CTRL" offset="0x0" rw="W" size="1" initval="0x00" caption="Control">
           <bitfield name="SWRST" caption="Software Reset" mask="0x1"/>
@@ -1723,7 +1748,7 @@ limitations under the License.
         <register name="DCC" offset="0x10" rw="RW" size="4" count="2" initval="0x00000000" caption="Debug Communication Channel n">
           <bitfield name="DATA" caption="Data" mask="0xFFFFFFFF"/>
         </register>
-        <register name="DID" offset="0x18" rw="R" size="4" initval="0x1081000A" caption="Device Identification">
+        <register name="DID" offset="0x18" rw="R" size="4" initval="0x1081021A" caption="Device Identification">
           <bitfield name="DEVSEL" caption="Device Select" mask="0xFF"/>
           <bitfield name="REVISION" caption="Revision Number" mask="0xF00"/>
           <bitfield name="DIE" caption="Die Number" mask="0xF000"/>
@@ -1734,17 +1759,17 @@ limitations under the License.
         <register name="DCFG" offset="0xF0" rw="RW" size="4" count="2" initval="0x00000000" caption="Device Configuration">
           <bitfield name="DCFG" caption="Device Configuration" mask="0xFFFFFFFF"/>
         </register>
-        <register name="ENTRY0" offset="0x1000" rw="R" size="4" initval="0x9F0FC002" caption="CoreSight ROM Table Entry 0">
+        <register name="ENTRY0" offset="0x1000" rw="R" size="4" initval="0x9F0FC002" caption="Coresight ROM Table Entry 0">
           <bitfield name="EPRES" caption="Entry Present" mask="0x1"/>
           <bitfield name="FMT" caption="Format" mask="0x2"/>
           <bitfield name="ADDOFF" caption="Address Offset" mask="0xFFFFF000"/>
         </register>
-        <register name="ENTRY1" offset="0x1004" rw="R" size="4" initval="0x00003002" caption="CoreSight ROM Table Entry 1">
+        <register name="ENTRY1" offset="0x1004" rw="R" size="4" initval="0x00003002" caption="Coresight ROM Table Entry 1">
         </register>
-        <register name="END" offset="0x1008" rw="R" size="4" initval="0x00000000" caption="CoreSight ROM Table End">
+        <register name="END" offset="0x1008" rw="R" size="4" initval="0x00000000" caption="Coresight ROM Table End">
           <bitfield name="END" caption="End Marker" mask="0xFFFFFFFF"/>
         </register>
-        <register name="MEMTYPE" offset="0x1FCC" rw="R" size="4" initval="0x00000000" caption="CoreSight ROM Table Memory Type">
+        <register name="MEMTYPE" offset="0x1FCC" rw="R" size="4" initval="0x00000000" caption="Coresight ROM Table Memory Type">
           <bitfield name="SMEMP" caption="System Memory Present" mask="0x1"/>
         </register>
         <register name="PID4" offset="0x1FD0" rw="R" size="4" initval="0x00000000" caption="Peripheral Identification 4">
@@ -1773,14 +1798,14 @@ limitations under the License.
           <bitfield name="CUSMOD" caption="ARM CUSMOD" mask="0xF"/>
           <bitfield name="REVAND" caption="Revision Number" mask="0xF0"/>
         </register>
-        <register name="CID0" offset="0x1FF0" rw="R" size="4" initval="0x00000000" caption="Component Identification 0">
+        <register name="CID0" offset="0x1FF0" rw="R" size="4" initval="0x0000000D" caption="Component Identification 0">
           <bitfield name="PREAMBLEB0" caption="Preamble Byte 0" mask="0xFF"/>
         </register>
-        <register name="CID1" offset="0x1FF4" rw="R" size="4" initval="0x0000000D" caption="Component Identification 1">
+        <register name="CID1" offset="0x1FF4" rw="R" size="4" initval="0x00000010" caption="Component Identification 1">
           <bitfield name="PREAMBLE" caption="Preamble" mask="0xF"/>
           <bitfield name="CCLASS" caption="Component Class" mask="0xF0"/>
         </register>
-        <register name="CID2" offset="0x1FF8" rw="R" size="4" initval="0x00000010" caption="Component Identification 2">
+        <register name="CID2" offset="0x1FF8" rw="R" size="4" initval="0x00000005" caption="Component Identification 2">
           <bitfield name="PREAMBLEB2" caption="Preamble Byte 2" mask="0xFF"/>
         </register>
         <register name="CID3" offset="0x1FFC" rw="R" size="4" initval="0x000000B1" caption="Component Identification 3">
@@ -1802,7 +1827,7 @@ limitations under the License.
         <value name="1" caption="Cortex-M0+ processor, USB" value="1"/>
       </value-group>
     </module>
-    <module name="EIC" id="U2254" version="1.0.0" caption="External Interrupt Controller">
+    <module name="EIC" id="U2254" version="2.0.2" caption="External Interrupt Controller">
       <register-group name="EIC" caption="External Interrupt Controller">
         <register name="CTRLA" offset="0x0" rw="RW" size="1" initval="0x00" caption="Control">
           <bitfield name="SWRST" caption="Software Reset" mask="0x1"/>
@@ -1812,6 +1837,7 @@ limitations under the License.
         <register name="NMICTRL" offset="0x1" rw="RW" size="1" initval="0x00" caption="NMI Control">
           <bitfield name="NMISENSE" caption="NMI Input Sense Configuration" mask="0x7" values="EIC_NMICTRL__NMISENSE"/>
           <bitfield name="NMIFILTEN" caption="NMI Filter Enable" mask="0x8"/>
+          <bitfield name="NMIASYNCH" caption="NMI Asynchronous edge Detection Enable" mask="0x10"/>
         </register>
         <register name="NMIFLAG" offset="0x2" rw="RW" size="2" atomic-op="clear:NMIFLAG" initval="0x0000" caption="NMI Interrupt Flag">
           <bitfield name="NMI" caption="NMI Interrupt Flag" mask="0x1"/>
@@ -1831,6 +1857,9 @@ limitations under the License.
         </register>
         <register name="INTFLAG" offset="0x14" rw="RW" size="4" atomic-op="clear:INTFLAG" initval="0x00000000" caption="Interrupt Flag Status and Clear">
           <bitfield name="EXTINT" caption="External Interrupt Flag" mask="0xFFFF"/>
+        </register>
+        <register name="ASYNCH" offset="0x18" rw="RW" size="4" initval="0x00000000" caption="EIC Asynchronous edge Detection Enable">
+          <bitfield name="ASYNCH" caption="EIC Asynchronous edge Detection Enable" mask="0xFFFF"/>
         </register>
         <register name="CONFIG" offset="0x1C" rw="RW" size="4" count="2" initval="0x00000000" caption="Configuration n">
           <bitfield name="SENSE0" caption="Input Sense Configuration 0" mask="0x7" values="EIC_CONFIG__SENSE0"/>
@@ -1924,7 +1953,7 @@ limitations under the License.
         <value name="LOW" caption="Low level detection" value="5"/>
       </value-group>
     </module>
-    <module name="EVSYS" id="U2256" version="1.0.0" caption="Event System Interface">
+    <module name="EVSYS" id="U2256" version="1.0.1" caption="Event System Interface">
       <register-group name="EVSYS" caption="Event System Interface">
         <register name="CTRLA" offset="0x0" rw="RW" size="1" initval="0x00" caption="Control">
           <bitfield name="SWRST" caption="Software Reset" mask="0x1"/>
@@ -2070,7 +2099,7 @@ limitations under the License.
         <value name="ASYNCHRONOUS" caption="Asynchronous path" value="2"/>
       </value-group>
     </module>
-    <module name="GCLK" id="U2122" version="1.0.0" caption="Generic Clock Generator">
+    <module name="GCLK" id="U2122" version="1.1.1" caption="Generic Clock Generator">
       <register-group name="GCLK" caption="Generic Clock Generator">
         <register name="CTRLA" offset="0x0" rw="RW" access="WSYNC" size="1" initval="0x00" caption="Control">
           <bitfield name="SWRST" caption="Software Reset" mask="0x1"/>
@@ -2088,7 +2117,7 @@ limitations under the License.
           <bitfield name="GENCTRL8" caption="Generic Clock Generator Control 8 Synchronization Busy bits" mask="0x400" values="GCLK_SYNCBUSY__GENCTRL"/>
         </register>
         <register name="GENCTRL" offset="0x20" rw="RW" size="4" count="9" initval="0x00000000" caption="Generic Clock Generator Control">
-          <bitfield name="SRC" caption="Source Select" mask="0x1F" values="GCLK_GENCTRL__SRC"/>
+          <bitfield name="SRC" caption="Source Select" mask="0xF" values="GCLK_GENCTRL__SRC"/>
           <bitfield name="GENEN" caption="Generic Clock Generator Enable" mask="0x100"/>
           <bitfield name="IDC" caption="Improve Duty Cycle" mask="0x200"/>
           <bitfield name="OOV" caption="Output Off Value" mask="0x400"/>
@@ -2137,23 +2166,18 @@ limitations under the License.
         <value name="GCLK8" caption="Generic clock generator 8" value="0x8"/>
       </value-group>
     </module>
-    <module name="MCLK" id="U2234" version="1.0.0" caption="Main Clock">
+    <module name="MCLK" id="U2234" version="1.0.1" caption="Main Clock">
       <register-group name="MCLK" caption="Main Clock">
         <register name="CTRLA" offset="0x0" rw="RW" size="1" initval="0x00" caption="Control A">
-          <bitfield name="CFDEN" caption="Clock Failure Detector Enable" mask="0x4"/>
-          <bitfield name="EMCLK" caption="Emergency Clock Select" mask="0x10"/>
         </register>
         <register name="INTENCLR" offset="0x1" rw="RW" size="1" atomic-op="clear:INTENCLR" initval="0x00" caption="Interrupt Enable Clear">
           <bitfield name="CKRDY" caption="Clock Ready Interrupt Enable" mask="0x1"/>
-          <bitfield name="CFD" caption="Clock Failure Detector Interrupt Enable" mask="0x2"/>
         </register>
         <register name="INTENSET" offset="0x2" rw="RW" size="1" atomic-op="set:INTENSET" initval="0x00" caption="Interrupt Enable Set">
           <bitfield name="CKRDY" caption="Clock Ready Interrupt Enable" mask="0x1"/>
-          <bitfield name="CFD" caption="Clock Failure Detector Interrupt Enable" mask="0x2"/>
         </register>
         <register name="INTFLAG" offset="0x3" rw="RW" size="1" atomic-op="clear:INTFLAG" initval="0x01" caption="Interrupt Flag Status and Clear">
           <bitfield name="CKRDY" caption="Clock Ready" mask="0x1"/>
-          <bitfield name="CFD" caption="Clock Failure Detector" mask="0x2"/>
         </register>
         <register name="CPUDIV" offset="0x4" rw="RW" size="1" initval="0x01" caption="CPU Clock Division">
           <bitfield name="CPUDIV" caption="CPU Clock Division Factor" mask="0xFF" values="MCLK_CPUDIV__CPUDIV"/>
@@ -2196,7 +2220,7 @@ limitations under the License.
           <bitfield name="EIC_" caption="EIC APB Clock Enable" mask="0x200"/>
           <bitfield name="PORT_" caption="PORT APB Clock Enable" mask="0x400"/>
         </register>
-        <register name="APBBMASK" offset="0x18" rw="RW" size="4" initval="0x00000007" caption="APBB Mask">
+        <register name="APBBMASK" offset="0x18" rw="RW" size="4" initval="0x00000017" caption="APBB Mask">
           <bitfield name="USB_" caption="USB APB Clock Enable" mask="0x1"/>
           <bitfield name="DSU_" caption="DSU APB Clock Enable" mask="0x2"/>
           <bitfield name="NVMCTRL_" caption="NVMCTRL APB Clock Enable" mask="0x4"/>
@@ -2206,6 +2230,7 @@ limitations under the License.
           <bitfield name="SERCOM1_" caption="SERCOM1 APB Clock Enable" mask="0x2"/>
           <bitfield name="SERCOM2_" caption="SERCOM2 APB Clock Enable" mask="0x4"/>
           <bitfield name="SERCOM3_" caption="SERCOM3 APB Clock Enable" mask="0x8"/>
+          <bitfield name="SERCOM4_" caption="SERCOM4 APB Clock Enable" mask="0x10"/>
           <bitfield name="TCC0_" caption="TCC0 APB Clock Enable" mask="0x20"/>
           <bitfield name="TCC1_" caption="TCC1 APB Clock Enable" mask="0x40"/>
           <bitfield name="TCC2_" caption="TCC2 APB Clock Enable" mask="0x80"/>
@@ -2217,6 +2242,7 @@ limitations under the License.
         </register>
         <register name="APBDMASK" offset="0x20" rw="RW" size="4" initval="0x000000FF" caption="APBD Mask">
           <bitfield name="EVSYS_" caption="EVSYS APB Clock Enable" mask="0x1"/>
+          <bitfield name="SERCOM5_" caption="SERCOM5 APB Clock Enable" mask="0x2"/>
           <bitfield name="TC4_" caption="TC4 APB Clock Enable" mask="0x4"/>
           <bitfield name="ADC_" caption="ADC APB Clock Enable" mask="0x8"/>
           <bitfield name="AC_" caption="AC APB Clock Enable" mask="0x10"/>
@@ -2224,7 +2250,7 @@ limitations under the License.
           <bitfield name="OPAMP_" caption="OPAMP APB Clock Enable" mask="0x40"/>
           <bitfield name="CCL_" caption="CCL APB Clock Enable" mask="0x80"/>
         </register>
-        <register name="APBEMASK" offset="0x24" rw="RW" size="4" initval="0x00000009" caption="APBE Mask">
+        <register name="APBEMASK" offset="0x24" rw="RW" size="4" initval="0x0000000D" caption="APBE Mask">
           <bitfield name="PAC_" caption="PAC APB Clock Enable" mask="0x1"/>
         </register>
       </register-group>
@@ -2325,13 +2351,13 @@ limitations under the License.
         </register>
       </register-group>
     </module>
-    <module name="NVMCTRL" id="U2207" version="3.0.1" caption="Non-Volatile Memory Controller">
+    <module name="NVMCTRL" id="U2207" version="3.0.2" caption="Non-Volatile Memory Controller">
       <register-group name="NVMCTRL" caption="Non-Volatile Memory Controller">
         <register name="CTRLA" offset="0x0" rw="RW" size="2" initval="0x0000" caption="Control A">
           <bitfield name="CMD" caption="Command" mask="0x7F" values="NVMCTRL_CTRLA__CMD"/>
           <bitfield name="CMDEX" caption="Command Execution" mask="0xFF00" values="NVMCTRL_CTRLA__CMDEX"/>
         </register>
-        <register name="CTRLB" offset="0x4" rw="RW" size="4" initval="0x00000000" caption="Control B">
+        <register name="CTRLB" offset="0x4" rw="RW" size="4" initval="0x00000080" caption="Control B">
           <bitfield name="RWS" caption="NVM Read Wait States" mask="0x1E" values="NVMCTRL_CTRLB__RWS"/>
           <bitfield name="MANW" caption="Manual Write" mask="0x80"/>
           <bitfield name="SLEEPPRM" caption="Power Reduction Mode during Sleep" mask="0x300" values="NVMCTRL_CTRLB__SLEEPPRM"/>
@@ -2367,7 +2393,7 @@ limitations under the License.
         <register name="ADDR" offset="0x1C" rw="RW" size="4" initval="0x00000000" caption="Address">
           <bitfield name="ADDR" caption="NVM Address" mask="0x3FFFFF"/>
         </register>
-        <register name="LOCK" offset="0x20" rw="RW" size="2" initval="0x0000" caption="Lock Section">
+        <register name="LOCK" offset="0x20" rw="RW" size="2" caption="Lock Section">
           <bitfield name="LOCK" caption="Region Lock Bits" mask="0xFFFF"/>
         </register>
       </register-group>
@@ -2417,7 +2443,7 @@ limitations under the License.
         <value name="1024" caption="1024 bytes" value="0x7"/>
       </value-group>
     </module>
-    <module name="FUSES" id="U2207" version="3.0.1" caption="Non-Volatile Fuses">
+    <module name="FUSES" id="U2207" version="3.0.2" caption="Non-Volatile Fuses">
       <register-group name="OTP5_FUSES">
         <register name="OTP5_WORD_0" offset="0x0" size="4" rw="R" caption="OTP5 Page Word 0">
           <bitfield name="ADC_BIASREFBUF" caption="ADC Bias Reference Buffer Scaling" mask="0x7"/>
@@ -2463,7 +2489,7 @@ limitations under the License.
         </register>
       </register-group>
     </module>
-    <module name="OPAMP" id="U2237" version="1.0.0" caption="Operational Amplifier">
+    <module name="OPAMP" id="U2237" version="1.1.0" caption="Operational Amplifier">
       <register-group name="OPAMP" caption="Operational Amplifier">
         <register name="CTRLA" offset="0x0" rw="RW" size="1" initval="0x00" caption="Control A">
           <bitfield name="SWRST" caption="Software Reset" mask="0x1"/>
@@ -2475,7 +2501,7 @@ limitations under the License.
           <bitfield name="READY1" caption="OPAMP 1 Ready" mask="0x2"/>
           <bitfield name="READY2" caption="OPAMP 2 Ready" mask="0x4"/>
         </register>
-        <register name="OPAMPCTRL" offset="0x4" rw="RW" size="4" count="3" initval="0x00000000" caption="OPAMP Control n">
+        <register name="OPAMPCTRL" offset="0x4" rw="RW" size="4" count="3" initval="0x00000000" caption="OPAMP n Control">
           <bitfield name="ENABLE" caption="Operational Amplifier Enable" mask="0x2"/>
           <bitfield name="ANAOUT" caption="Analog Output" mask="0x4"/>
           <bitfield name="BIAS" caption="Bias Selection" mask="0x18"/>
@@ -2491,7 +2517,7 @@ limitations under the License.
         </register>
       </register-group>
     </module>
-    <module name="OSCCTRL" id="U2119" version="1.0.0" caption="Oscillators Control">
+    <module name="OSCCTRL" id="U2119" version="1.1.0" caption="Oscillators Control">
       <register-group name="OSCCTRL" caption="Oscillators Control">
         <register name="INTENCLR" offset="0x0" rw="RW" size="4" atomic-op="clear:INTENCLR" initval="0x00000000" caption="Interrupt Enable Clear">
           <bitfield name="XOSCRDY" caption="XOSC Ready Interrupt Enable" mask="0x1"/>
@@ -2629,7 +2655,7 @@ limitations under the License.
         <value name="DIV4" caption="DPLL output is divided by 4" value="2"/>
       </value-group>
     </module>
-    <module name="OSC32KCTRL" id="U2246" version="1.0.0" caption="32k Oscillators Control">
+    <module name="OSC32KCTRL" id="U2246" version="1.1.0" caption="32k Oscillators Control">
       <register-group name="OSC32KCTRL" caption="32k Oscillators Control">
         <register name="INTENCLR" offset="0x0" rw="RW" size="4" atomic-op="clear:INTENCLR" initval="0x00000000" caption="Interrupt Enable Clear">
           <bitfield name="XOSC32KRDY" caption="XOSC32K Ready Interrupt Enable" mask="0x1"/>
@@ -2684,7 +2710,7 @@ limitations under the License.
         <value name="XOSC32K" caption="32.768kHz from 32.768kHz external crystal oscillator" value="5"/>
       </value-group>
     </module>
-    <module name="PAC" id="U2120" version="1.0.0" caption="Peripheral Access Controller">
+    <module name="PAC" id="U2120" version="1.1.0" caption="Peripheral Access Controller">
       <register-group name="PAC" caption="Peripheral Access Controller">
         <register name="WRCTRL" offset="0x0" rw="RW" size="4" initval="0x00000000" caption="Write control">
           <bitfield name="PERID" caption="Peripheral identifier" mask="0xFFFF"/>
@@ -2739,6 +2765,7 @@ limitations under the License.
           <bitfield name="SERCOM1_" caption="SERCOM1" mask="0x2"/>
           <bitfield name="SERCOM2_" caption="SERCOM2" mask="0x4"/>
           <bitfield name="SERCOM3_" caption="SERCOM3" mask="0x8"/>
+          <bitfield name="SERCOM4_" caption="SERCOM4" mask="0x10"/>
           <bitfield name="TCC0_" caption="TCC0" mask="0x20"/>
           <bitfield name="TCC1_" caption="TCC1" mask="0x40"/>
           <bitfield name="TCC2_" caption="TCC2" mask="0x80"/>
@@ -2750,6 +2777,7 @@ limitations under the License.
         </register>
         <register name="INTFLAGD" offset="0x20" rw="RW" size="4" atomic-op="clear:INTFLAGD" initval="0x00000000" caption="Peripheral interrupt flag status - Bridge D">
           <bitfield name="EVSYS_" caption="EVSYS" mask="0x1"/>
+          <bitfield name="SERCOM5_" caption="SERCOM5" mask="0x2"/>
           <bitfield name="TC4_" caption="TC4" mask="0x4"/>
           <bitfield name="ADC_" caption="ADC" mask="0x8"/>
           <bitfield name="AC_" caption="AC" mask="0x10"/>
@@ -2761,7 +2789,7 @@ limitations under the License.
           <bitfield name="PAC_" caption="PAC" mask="0x1"/>
           <bitfield name="DMAC_" caption="DMAC" mask="0x2"/>
         </register>
-        <register name="STATUSA" offset="0x34" rw="R" size="4" initval="0x00001000" caption="Peripheral write protection status - Bridge A">
+        <register name="STATUSA" offset="0x34" rw="R" size="4" initval="0x00003000" caption="Peripheral write protection status - Bridge A">
           <bitfield name="PM_" caption="PM APB Protect Enable" mask="0x1"/>
           <bitfield name="MCLK_" caption="MCLK APB Protect Enable" mask="0x2"/>
           <bitfield name="RSTC_" caption="RSTC APB Protect Enable" mask="0x4"/>
@@ -2774,7 +2802,7 @@ limitations under the License.
           <bitfield name="EIC_" caption="EIC APB Protect Enable" mask="0x200"/>
           <bitfield name="PORT_" caption="PORT APB Protect Enable" mask="0x400"/>
         </register>
-        <register name="STATUSB" offset="0x38" rw="R" size="4" initval="0x00000022" caption="Peripheral write protection status - Bridge B">
+        <register name="STATUSB" offset="0x38" rw="R" size="4" initval="0x00000002" caption="Peripheral write protection status - Bridge B">
           <bitfield name="USB_" caption="USB APB Protect Enable" mask="0x1"/>
           <bitfield name="DSU_" caption="DSU APB Protect Enable" mask="0x2"/>
           <bitfield name="NVMCTRL_" caption="NVMCTRL APB Protect Enable" mask="0x4"/>
@@ -2785,6 +2813,7 @@ limitations under the License.
           <bitfield name="SERCOM1_" caption="SERCOM1 APB Protect Enable" mask="0x2"/>
           <bitfield name="SERCOM2_" caption="SERCOM2 APB Protect Enable" mask="0x4"/>
           <bitfield name="SERCOM3_" caption="SERCOM3 APB Protect Enable" mask="0x8"/>
+          <bitfield name="SERCOM4_" caption="SERCOM4 APB Protect Enable" mask="0x10"/>
           <bitfield name="TCC0_" caption="TCC0 APB Protect Enable" mask="0x20"/>
           <bitfield name="TCC1_" caption="TCC1 APB Protect Enable" mask="0x40"/>
           <bitfield name="TCC2_" caption="TCC2 APB Protect Enable" mask="0x80"/>
@@ -2796,6 +2825,7 @@ limitations under the License.
         </register>
         <register name="STATUSD" offset="0x40" rw="R" size="4" initval="0x00000000" caption="Peripheral write protection status - Bridge D">
           <bitfield name="EVSYS_" caption="EVSYS APB Protect Enable" mask="0x1"/>
+          <bitfield name="SERCOM5_" caption="SERCOM5 APB Protect Enable" mask="0x2"/>
           <bitfield name="TC4_" caption="TC4 APB Protect Enable" mask="0x4"/>
           <bitfield name="ADC_" caption="ADC APB Protect Enable" mask="0x8"/>
           <bitfield name="AC_" caption="AC APB Protect Enable" mask="0x10"/>
@@ -2815,16 +2845,17 @@ limitations under the License.
         <value name="SETLCK" caption="Set and lock protection" value="3"/>
       </value-group>
     </module>
-    <module name="PM" id="U2240" version="1.0.0" caption="Power Manager">
+    <module name="PM" id="U2240" version="1.0.2" caption="Power Manager">
       <register-group name="PM" caption="Power Manager">
         <register name="CTRLA" offset="0x0" rw="RW" size="1" initval="0x00" caption="Control A">
           <bitfield name="IORET" caption="I/O Retention" mask="0x4"/>
         </register>
-        <register name="SLEEPCFG" offset="0x1" rw="RW" size="1" initval="0x00" caption="Sleep Configuration">
+        <register name="SLEEPCFG" offset="0x1" rw="RW" size="1" initval="0x02" caption="Sleep Configuration">
           <bitfield name="SLEEPMODE" caption="Sleep Mode" mask="0x7" values="PM_SLEEPCFG__SLEEPMODE"/>
         </register>
         <register name="PLCFG" offset="0x2" rw="RW" size="1" initval="0x00" caption="Performance Level Configuration">
           <bitfield name="PLSEL" caption="Performance Level Select" mask="0x3" values="PM_PLCFG__PLSEL"/>
+          <bitfield name="PLDIS" caption="Performance Level Disable" mask="0x80"/>
         </register>
         <register name="INTENCLR" offset="0x4" rw="RW" size="1" atomic-op="clear:INTENCLR" initval="0x00" caption="Interrupt Enable Clear">
           <bitfield name="PLRDY" caption="Performance Level Interrupt Enable" mask="0x1"/>
@@ -2839,7 +2870,7 @@ limitations under the License.
           <bitfield name="PDCFG" caption="Power Domain Configuration" mask="0x3" values="PM_STDBYCFG__PDCFG"/>
           <bitfield name="DPGPD0" caption="Dynamic Power Gating for PD0" mask="0x10"/>
           <bitfield name="DPGPD1" caption="Dynamic Power Gating for PD1" mask="0x20"/>
-          <bitfield name="AVREGSD" caption="Automatic VREG Switching Disable" mask="0x80"/>
+          <bitfield name="VREGSMOD" caption="Voltage Regulator Standby mode" mask="0xC0" values="PM_STDBYCFG__VREGSMOD"/>
           <bitfield name="LINKPD" caption="Linked Power Domain" mask="0x300" values="PM_STDBYCFG__LINKPD"/>
           <bitfield name="BBIASHS" caption="Back Bias for HMCRAMCHS" mask="0xC00"/>
           <bitfield name="BBIASLP" caption="Back Bias for HMCRAMCLP" mask="0x3000"/>
@@ -2873,8 +2904,13 @@ limitations under the License.
         <value name="PD01" caption="PD0 and PD1 are forced ACTIVE. PD2 power domain switching is handled by hardware." value="2"/>
         <value name="PD012" caption="All power domains are forced ACTIVE." value="3"/>
       </value-group>
+      <value-group name="PM_STDBYCFG__VREGSMOD">
+        <value name="AUTO" caption="Automatic mode" value="0"/>
+        <value name="PERFORMANCE" caption="Performance oriented" value="1"/>
+        <value name="LP" caption="Low Power oriented" value="2"/>
+      </value-group>
     </module>
-    <module name="PORT" id="U2210" version="2.0.0" caption="Port Module">
+    <module name="PORT" id="U2210" version="2.0.1" caption="Port Module">
       <register-group name="GROUP" size="0x80">
         <register name="DIR" offset="0x0" rw="RW" size="4" initval="0x00000000" caption="Data Direction">
           <bitfield name="DIR" caption="Port Data Direction" mask="0xFFFFFFFF"/>
@@ -2946,10 +2982,10 @@ limitations under the License.
         <register-group name="GROUP" name-in-module="GROUP" offset="0x00" count="1"/>
       </register-group>
     </module>
-    <module name="PTC" id="U2215" version="2.0.0" caption="Peripheral Touch Controller">
+    <module name="PTC" id="U2215" version="2.1.0" caption="Peripheral Touch Controller">
       <register-group name="PTC" caption="Peripheral Touch Controller"/>
     </module>
-    <module name="RSTC" id="U2239" version="1.0.0" caption="Reset Controller">
+    <module name="RSTC" id="U2239" version="1.1.0" caption="Reset Controller">
       <register-group name="RSTC" caption="Reset Controller">
         <register name="RCAUSE" offset="0x0" rw="R" size="1" caption="Reset Cause">
           <bitfield name="POR" caption="Power On Reset" mask="0x1"/>
@@ -2969,10 +3005,10 @@ limitations under the License.
           <bitfield name="WKDBCNT" caption="Wakeup Debounce Counter" mask="0x1F" values="RSTC_WKDBCONF__WKDBCNT"/>
         </register>
         <register name="WKPOL" offset="0x8" rw="RW" size="2" initval="0x0000" caption="Wakeup Polarity">
-          <bitfield name="WKPOL" caption="Wakeup Polarity" mask="0xFFFF"/>
+          <bitfield name="WKPOL" caption="Wakeup Polarity" mask="0xFF"/>
         </register>
         <register name="WKEN" offset="0xC" rw="RW" size="2" initval="0x0000" caption="Wakeup Enable">
-          <bitfield name="WKEN" caption="Wakeup Enable" mask="0xFFFF"/>
+          <bitfield name="WKEN" caption="Wakeup Enable" mask="0xFF"/>
         </register>
         <register name="WKCAUSE" offset="0x10" rw="RW" size="2" initval="0x0000" caption="Wakeup Cause">
           <bitfield name="WKCAUSE" caption="Wakeup Cause" mask="0xFFFF"/>
@@ -2988,7 +3024,7 @@ limitations under the License.
         <value name="32768CK32" caption="Input pin shall be active for at least 32768 32kHz clock period." value="0x06"/>
       </value-group>
     </module>
-    <module name="RTC" id="U2250" version="1.0.0" caption="Real-Time Counter">
+    <module name="RTC" id="U2250" version="1.1.0" caption="Real-Time Counter">
       <register-group name="MODE2_ALARM" size="0x8">
         <mode name="MODE2" qualifier="RTC.MODE2.CTRLA.MODE" value="2" caption="Clock/Calendar with Alarm"/>
         <register modes="MODE2" name="ALARM" offset="0x0" rw="RW" access="WSYNC" size="4" initval="0x00000000" caption="MODE2_ALARM Alarm n Value">
@@ -3013,12 +3049,14 @@ limitations under the License.
           <bitfield name="MODE" caption="Operating Mode" mask="0xC" values="RTC_MODE0_CTRLA__MODE"/>
           <bitfield name="MATCHCLR" caption="Clear on Match" mask="0x80"/>
           <bitfield name="PRESCALER" caption="Prescaler" mask="0xF00" values="RTC_MODE0_CTRLA__PRESCALER"/>
+          <bitfield name="COUNTSYNC" caption="Count Read Synchronization Enable" mask="0x8000"/>
         </register>
         <register modes="MODE1" name="CTRLA" offset="0x0" rw="RW" access="WSYNC" size="2" initval="0x0000" caption="MODE1 Control A">
           <bitfield name="SWRST" caption="Software Reset" mask="0x1"/>
           <bitfield name="ENABLE" caption="Enable" mask="0x2"/>
           <bitfield name="MODE" caption="Operating Mode" mask="0xC" values="RTC_MODE1_CTRLA__MODE"/>
           <bitfield name="PRESCALER" caption="Prescaler" mask="0xF00" values="RTC_MODE1_CTRLA__PRESCALER"/>
+          <bitfield name="COUNTSYNC" caption="Count Read Synchronization Enable" mask="0x8000"/>
         </register>
         <register modes="MODE2" name="CTRLA" offset="0x0" rw="RW" access="WSYNC" size="2" initval="0x0000" caption="MODE2 Control A">
           <bitfield name="SWRST" caption="Software Reset" mask="0x1"/>
@@ -3027,6 +3065,7 @@ limitations under the License.
           <bitfield name="CLKREP" caption="Clock Representation" mask="0x40"/>
           <bitfield name="MATCHCLR" caption="Clear on Match" mask="0x80"/>
           <bitfield name="PRESCALER" caption="Prescaler" mask="0xF00" values="RTC_MODE2_CTRLA__PRESCALER"/>
+          <bitfield name="CLOCKSYNC" caption="Clock Read Synchronization Enable" mask="0x8000"/>
         </register>
         <register modes="MODE0" name="EVCTRL" offset="0x4" rw="RW" size="4" initval="0x00000000" caption="MODE0 Event Control">
           <bitfield name="PEREO0" caption="Periodic Interval 0 Event Output Enable" mask="0x1"/>
@@ -3185,6 +3224,7 @@ limitations under the License.
           <bitfield name="FREQCORR" caption="FREQCORR Register Busy" mask="0x4"/>
           <bitfield name="COUNT" caption="COUNT Register Busy" mask="0x8"/>
           <bitfield name="COMP0" caption="COMP 0 Register Busy" mask="0x20"/>
+          <bitfield name="COUNTSYNC" caption="Count Read Synchronization Enable Bit Busy" mask="0x8000"/>
         </register>
         <register modes="MODE1" name="SYNCBUSY" offset="0x10" rw="R" size="4" initval="0x00000000" caption="MODE1 Synchronization Busy Status">
           <bitfield name="SWRST" caption="Software Reset Bit Busy" mask="0x1"/>
@@ -3194,6 +3234,7 @@ limitations under the License.
           <bitfield name="PER" caption="PER Register Busy" mask="0x10"/>
           <bitfield name="COMP0" caption="COMP 0 Register Busy" mask="0x20"/>
           <bitfield name="COMP1" caption="COMP 1 Register Busy" mask="0x40"/>
+          <bitfield name="COUNTSYNC" caption="Count Read Synchronization Enable Bit Busy" mask="0x8000"/>
         </register>
         <register modes="MODE2" name="SYNCBUSY" offset="0x10" rw="R" size="4" initval="0x00000000" caption="MODE2 Synchronization Busy Status">
           <bitfield name="SWRST" caption="Software Reset Bit Busy" mask="0x1"/>
@@ -3202,6 +3243,7 @@ limitations under the License.
           <bitfield name="CLOCK" caption="CLOCK Register Busy" mask="0x8"/>
           <bitfield name="ALARM0" caption="ALARM 0 Register Busy" mask="0x20"/>
           <bitfield name="MASK0" caption="MASK 0 Register Busy" mask="0x800"/>
+          <bitfield name="CLOCKSYNC" caption="Clock Read Synchronization Enable Bit Busy" mask="0x8000"/>
         </register>
         <register name="FREQCORR" offset="0x14" rw="RW" access="WSYNC" size="1" initval="0x00" caption="Frequency Correction">
           <bitfield name="VALUE" caption="Correction Value" mask="0x7F"/>
@@ -3309,7 +3351,7 @@ limitations under the License.
         <value name="YYMMDDHHMMSS" caption="Match seconds, minutes, hours, days, months, and years" value="0x6"/>
       </value-group>
     </module>
-    <module name="SERCOM" id="U2201" version="2.1.0" caption="Serial Communication Interface">
+    <module name="SERCOM" id="U2201" version="2.2.0" caption="Serial Communication Interface">
       <register-group name="SERCOM" caption="Serial Communication Interface">
         <mode name="I2CM" qualifier="SERCOM.I2CM_CTRLA.MODE" value="5" caption="I2C Master Mode"/>
         <mode name="I2CS" qualifier="SERCOM.I2CS_CTRLA.MODE" value="4" caption="I2C Slave Mode"/>
@@ -3595,7 +3637,7 @@ limitations under the License.
         </register>
       </register-group>
     </module>
-    <module name="SUPC" id="U2117" version="1.0.0" caption="Supply Controller">
+    <module name="SUPC" id="U2117" version="1.1.0" caption="Supply Controller">
       <register-group name="SUPC" caption="Supply Controller">
         <register name="INTENCLR" offset="0x0" rw="RW" size="4" atomic-op="clear:INTENCLR" initval="0x00000000" caption="Interrupt Enable Clear">
           <bitfield name="BOD33RDY" caption="BOD33 Ready" mask="0x1"/>
@@ -3668,7 +3710,9 @@ limitations under the License.
         <register name="VREG" offset="0x18" rw="RW" size="4" initval="0x00000000" caption="VREG Control">
           <bitfield name="ENABLE" caption="Enable" mask="0x2"/>
           <bitfield name="SEL" caption="Voltage Regulator Selection in active mode" mask="0xC" values="SUPC_VREG__SEL"/>
+          <bitfield name="STDBYPL0" caption="Standby in PL0" mask="0x20"/>
           <bitfield name="RUNSTDBY" caption="Run during Standby" mask="0x40"/>
+          <bitfield name="LPEFF" caption="Low Power Efficiency" mask="0x100"/>
           <bitfield name="VSVSTEP" caption="Voltage Scaling Voltage Step" mask="0xF0000"/>
           <bitfield name="VSPER" caption="Voltage Scaling Period" mask="0xFF000000"/>
         </register>
@@ -3763,7 +3807,7 @@ limitations under the License.
         <value name="BOD33" caption="The power switch is handled by the BOD33" value="0x3"/>
       </value-group>
     </module>
-    <module name="TC" id="U2249" version="1.0.0" caption="Basic Timer Counter">
+    <module name="TC" id="U2249" version="2.0.0" caption="Basic Timer Counter">
       <register-group name="TC" caption="Basic Timer Counter">
         <mode name="COUNT8" qualifier="TC.CTRLA.MODE" value="1" caption="8-bit Counter Mode"/>
         <mode name="COUNT16" qualifier="TC.CTRLA.MODE" value="0" caption="16-bit Counter Mode"/>
@@ -3907,6 +3951,7 @@ limitations under the License.
         <value name="STOP" caption="Force a stop" value="2"/>
         <value name="UPDATE" caption="Force update of double-buffered register" value="3"/>
         <value name="READSYNC" caption="Force a read synchronization of COUNT" value="4"/>
+        <value name="DMAOS" caption="One-shot DMA trigger" value="5"/>
       </value-group>
       <value-group name="TC_CTRLBSET__CMD">
         <value name="NONE" caption="No action" value="0"/>
@@ -3914,6 +3959,7 @@ limitations under the License.
         <value name="STOP" caption="Force a stop" value="2"/>
         <value name="UPDATE" caption="Force update of double-buffered register" value="3"/>
         <value name="READSYNC" caption="Force a read synchronization of COUNT" value="4"/>
+        <value name="DMAOS" caption="One-shot DMA trigger" value="5"/>
       </value-group>
       <value-group name="TC_EVCTRL__EVACT">
         <value name="OFF" caption="Event action disabled" value="0"/>
@@ -3932,7 +3978,7 @@ limitations under the License.
         <value name="MPWM" caption="Match PWM" value="3"/>
       </value-group>
     </module>
-    <module name="TCC" id="U2213" version="2.0.0" caption="Timer Counter Control">
+    <module name="TCC" id="U2213" version="3.0.0" caption="Timer Counter Control">
       <register-group name="TCC" caption="Timer Counter Control">
         <register name="CTRLA" offset="0x0" rw="RW" access="WSYNC" size="4" initval="0x00000000" caption="Control A">
           <bitfield name="SWRST" caption="Software Reset" mask="0x1"/>
@@ -3943,6 +3989,7 @@ limitations under the License.
           <bitfield name="PRESCSYNC" caption="Prescaler and Counter Synchronization Selection" mask="0x3000" values="TCC_CTRLA__PRESCSYNC"/>
           <bitfield name="ALOCK" caption="Auto Lock" mask="0x4000"/>
           <bitfield name="MSYNC" caption="Master Synchronization (only for TCC Slave Instance)" mask="0x8000"/>
+          <bitfield name="DMAOS" caption="DMA One-shot Trigger Mode" mask="0x800000"/>
           <bitfield name="CPTEN0" caption="Capture Channel 0 Enable" mask="0x1000000"/>
           <bitfield name="CPTEN1" caption="Capture Channel 1 Enable" mask="0x2000000"/>
           <bitfield name="CPTEN2" caption="Capture Channel 2 Enable" mask="0x4000000"/>
@@ -4118,7 +4165,6 @@ limitations under the License.
           <bitfield name="DFS" caption="Non-Recoverable Debug Fault State" mask="0x8"/>
           <bitfield name="SLAVE" caption="Slave" mask="0x10"/>
           <bitfield name="PATTBUFV" caption="Pattern Buffer Valid" mask="0x20"/>
-          <bitfield name="WAVEBUFV" caption="Wave Buffer Valid" mask="0x40"/>
           <bitfield name="PERBUFV" caption="Period Buffer Valid" mask="0x80"/>
           <bitfield name="FAULTAIN" caption="Recoverable Fault A Input" mask="0x100"/>
           <bitfield name="FAULTBIN" caption="Recoverable Fault B Input" mask="0x200"/>
@@ -4226,23 +4272,6 @@ limitations under the License.
           <bitfield name="PGVB6" caption="Pattern Generator 6 Output Enable" mask="0x4000"/>
           <bitfield name="PGVB7" caption="Pattern Generator 7 Output Enable" mask="0x8000"/>
         </register>
-        <register name="WAVEBUF" offset="0x68" rw="RW" size="4" initval="0x00000000" caption="Waveform Control Buffer">
-          <bitfield name="WAVEGENB" caption="Waveform Generation Buffer" mask="0x7" values="TCC_WAVEBUF__WAVEGENB"/>
-          <bitfield name="RAMPB" caption="Ramp Mode Buffer" mask="0x30"/>
-          <bitfield name="CIPERENB" caption="Circular Period Enable Buffer" mask="0x80"/>
-          <bitfield name="CICCENB0" caption="Circular Channel 0 Enable Buffer" mask="0x100"/>
-          <bitfield name="CICCENB1" caption="Circular Channel 1 Enable Buffer" mask="0x200"/>
-          <bitfield name="CICCENB2" caption="Circular Channel 2 Enable Buffer" mask="0x400"/>
-          <bitfield name="CICCENB3" caption="Circular Channel 3 Enable Buffer" mask="0x800"/>
-          <bitfield name="POLB0" caption="Channel 0 Polarity Buffer" mask="0x10000"/>
-          <bitfield name="POLB1" caption="Channel 1 Polarity Buffer" mask="0x20000"/>
-          <bitfield name="POLB2" caption="Channel 2 Polarity Buffer" mask="0x40000"/>
-          <bitfield name="POLB3" caption="Channel 3 Polarity Buffer" mask="0x80000"/>
-          <bitfield name="SWAPB0" caption="Swap DTI Output Pair 0 Buffer" mask="0x1000000"/>
-          <bitfield name="SWAPB1" caption="Swap DTI Output Pair 1 Buffer" mask="0x2000000"/>
-          <bitfield name="SWAPB2" caption="Swap DTI Output Pair 2 Buffer" mask="0x4000000"/>
-          <bitfield name="SWAPB3" caption="Swap DTI Output Pair 3 Buffer" mask="0x8000000"/>
-        </register>
         <register name="PERBUF" offset="0x6C" rw="RW" size="4" initval="0xFFFFFFFF" caption="Period Buffer">
           <mode name="DITH4"/>
           <mode name="DITH5"/>
@@ -4297,6 +4326,7 @@ limitations under the License.
         <value name="STOP" caption="Force stop" value="2"/>
         <value name="UPDATE" caption="Force update or double buffered registers" value="3"/>
         <value name="READSYNC" caption="Force COUNT read synchronization" value="4"/>
+        <value name="DMAOS" caption="One-shot DMA trigger" value="5"/>
       </value-group>
       <value-group name="TCC_CTRLBCLR__IDXCMD">
         <value name="DISABLE" caption="Command disabled: Index toggles between cycles A and B" value="0"/>
@@ -4310,6 +4340,7 @@ limitations under the License.
         <value name="STOP" caption="Force stop" value="2"/>
         <value name="UPDATE" caption="Force update or double buffered registers" value="3"/>
         <value name="READSYNC" caption="Force COUNT read synchronization" value="4"/>
+        <value name="DMAOS" caption="One-shot DMA trigger" value="5"/>
       </value-group>
       <value-group name="TCC_CTRLBSET__IDXCMD">
         <value name="DISABLE" caption="Command disabled: Index toggles between cycles A and B" value="0"/>
@@ -4426,15 +4457,6 @@ limitations under the License.
         <value name="DSBOTH" caption="Dual-slope with interrupt/event condition when COUNT reaches ZERO or TOP" value="6"/>
         <value name="DSTOP" caption="Dual-slope with interrupt/event condition when COUNT reaches TOP" value="7"/>
       </value-group>
-      <value-group name="TCC_WAVEBUF__WAVEGENB">
-        <value name="NFRQ" caption="Normal frequency" value="0"/>
-        <value name="MFRQ" caption="Match frequency" value="1"/>
-        <value name="NPWM" caption="Normal PWM" value="2"/>
-        <value name="DSCRITICAL" caption="Dual-slope critical" value="4"/>
-        <value name="DSBOTTOM" caption="Dual-slope with interrupt/event condition when COUNT reaches ZERO" value="5"/>
-        <value name="DSBOTH" caption="Dual-slope with interrupt/event condition when COUNT reaches ZERO or TOP" value="6"/>
-        <value name="DSTOP" caption="Dual-slope with interrupt/event condition when COUNT reaches TOP" value="7"/>
-      </value-group>
     </module>
     <module name="TRNG" id="U2242" version="1.0.0" caption="True Random Generator">
       <register-group name="TRNG" caption="True Random Generator">
@@ -4459,7 +4481,7 @@ limitations under the License.
         </register>
       </register-group>
     </module>
-    <module name="USB" id="U2222" version="1.1.0" caption="Universal Serial Bus">
+    <module name="USB" id="U2222" version="1.1.1" caption="Universal Serial Bus">
       <register-group name="DEVICE_DESC_BANK" size="0x10">
         <mode name="DEVICE" qualifier="USB.CTRLA.MODE" value="0" caption="USB is Device"/>
         <register modes="DEVICE" name="ADDR" offset="0x0" rw="RW" size="4" caption="DEVICE_DESC_BANK Endpoint Bank, Adress of Data Buffer">
@@ -4644,7 +4666,7 @@ limitations under the License.
           <bitfield name="SWRST" caption="Software Reset Synchronization Busy" mask="0x1"/>
           <bitfield name="ENABLE" caption="Enable Synchronization Busy" mask="0x2"/>
         </register>
-        <register name="QOSCTRL" offset="0x3" rw="RW" size="1" initval="0x15" caption="USB Quality Of Service">
+        <register name="QOSCTRL" offset="0x3" rw="RW" size="1" initval="0x0F" caption="USB Quality Of Service">
           <bitfield name="CQOS" caption="Configuration Quality of Service" mask="0x3"/>
           <bitfield name="DQOS" caption="Data Quality of Service" mask="0xC"/>
         </register>
@@ -4845,7 +4867,7 @@ limitations under the License.
         <value name="RESET" caption="RESET. USB lines Reset." value="0x40"/>
       </value-group>
     </module>
-    <module name="WDT" id="U2251" version="1.0.0" caption="Watchdog Timer">
+    <module name="WDT" id="U2251" version="1.0.1" caption="Watchdog Timer">
       <register-group name="WDT" caption="Watchdog Timer">
         <register name="CTRLA" offset="0x0" rw="RW" access="WSYNC" size="1" initval="0x00" caption="Control">
           <bitfield name="ENABLE" caption="Enable" mask="0x2"/>
@@ -5094,7 +5116,7 @@ limitations under the License.
     </module>
   </modules>
   <pinouts>
-    <pinout name="SAML21E" caption="SAML21E">
+    <pinout name="SAML21EM" caption="SAML21EM">
       <pin position="1" pad="PA00"/>
       <pin position="2" pad="PA01"/>
       <pin position="3" pad="PA02"/>
@@ -5127,6 +5149,51 @@ limitations under the License.
       <pin position="30" pad="VDDIN"/>
       <pin position="31" pad="PA30"/>
       <pin position="32" pad="PA31"/>
+      <pin position="ADVREFN" pad="GNDANA"/>
+      <pin position="VDDIO" pad="VDDIO"/>
+    </pinout>
+    <pinout name="SAML21EA" caption="SAML21EA">
+      <pin position="1" pad="PA00"/>
+      <pin position="2" pad="PA01"/>
+      <pin position="3" pad="PA02"/>
+      <pin position="4" pad="PA03"/>
+      <pin position="5" pad="PA04"/>
+      <pin position="6" pad="PA05"/>
+      <pin position="7" pad="PA06"/>
+      <pin position="8" pad="PA07"/>
+      <pin position="9" pad="VDDANA"/>
+      <pin position="10" pad="GNDIO"/>
+      <pin position="11" pad="PA08"/>
+      <pin position="12" pad="PA09"/>
+      <pin position="13" pad="PA10"/>
+      <pin position="14" pad="PA11"/>
+      <pin position="15" pad="PA14"/>
+      <pin position="16" pad="PA15"/>
+      <pin position="17" pad="PA16"/>
+      <pin position="18" pad="PA17"/>
+      <pin position="19" pad="PA18"/>
+      <pin position="20" pad="PA19"/>
+      <pin position="21" pad="PA22"/>
+      <pin position="22" pad="PA23"/>
+      <pin position="23" pad="PA24"/>
+      <pin position="24" pad="PA25"/>
+      <pin position="25" pad="PA27"/>
+      <pin position="26" pad="RESET_N"/>
+      <pin position="27" pad="VDDCORE"/>
+      <pin position="28" pad="GNDIO"/>
+      <pin position="29" pad="VSW"/>
+      <pin position="30" pad="VDDIN"/>
+      <pin position="31" pad="PA30"/>
+      <pin position="32" pad="PA31"/>
+      <pin position="58" pad="GNDANA"/>
+      <pin position="59" pad="ADVREFN"/>
+      <pin position="60" pad="GNDANA"/>
+      <pin position="71" pad="GNDANA"/>
+      <pin position="83" pad="GNDIO"/>
+      <pin position="97" pad="GNDIO"/>
+      <pin position="105" pad="GNDIO"/>
+      <pin position="114" pad="GNDIO"/>
+      <pin position="125" pad="GNDIO"/>
     </pinout>
   </pinouts>
 </avr-tools-device-file>
